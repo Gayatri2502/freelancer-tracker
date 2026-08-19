@@ -1,0 +1,131 @@
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app[data-theme="dark"] {
+  --bg: #0A0C10;
+  --bg-soft: #0D1015;
+  --sidebar: #0D1015;
+  --card: #12151C;
+  --card-hover: #171B24;
+  --border: #1F2430;
+  --border-strong: #2A3040;
+  --text-primary: #F3F5F9;
+  --text-secondary: #98A0B3;
+  --text-muted: #5B6273;
+  --accent: #5B7CFA;
+  --accent-2: #8B6BF0;
+  --accent-grad: linear-gradient(135deg, #5B7CFA, #8B6BF0);
+  --success: #22C55E;
+  --success-bg: rgba(34,197,94,0.14);
+  --warning: #F59E0B;
+  --warning-bg: rgba(245,158,11,0.14);
+  --danger: #EF4444;
+  --danger-bg: rgba(239,68,68,0.14);
+  --info: #38BDF8;
+  --info-bg: rgba(56,189,248,0.14);
+  --violet: #A78BFA;
+  --violet-bg: rgba(167,139,250,0.14);
+  --shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+.app[data-theme="light"] {
+  --bg: #EAF2FF;
+  --bg-soft: #F4F8FF;
+  --sidebar: #FFFFFF;
+  --card: #FFFFFF;
+  --card-hover: #F5F9FF;
+  --border: #DCE7FA;
+  --border-strong: #C4D6F5;
+  --text-primary: #0F1A2E;
+  --text-secondary: #56627D;
+  --text-muted: #8B96AD;
+  --accent: #3B5FE0;
+  --accent-2: #7C5CE0;
+  --accent-grad: linear-gradient(135deg, #3B5FE0, #7C5CE0);
+  --success: #16A34A;
+  --success-bg: #E4F7EB;
+  --warning: #D97706;
+  --warning-bg: #FDF1DD;
+  --danger: #DC2626;
+  --danger-bg: #FBE7E7;
+  --info: #0284C7;
+  --info-bg: #E0F3FC;
+  --violet: #7C3AED;
+  --violet-bg: #EFE7FD;
+  --shadow: 0 8px 24px rgba(30,60,140,0.08);
+}
+
+.app {
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+}
+
+.mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.card-hover:hover { background: var(--card-hover); }
+
+.label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-muted); font-weight: 600; margin-bottom: 5px; display: block;
+}
+
+.input, select.input, textarea.input {
+  width: 100%;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 11px;
+  font-size: 13.5px;
+  color: var(--text-primary);
+  outline: none;
+  font-family: inherit;
+}
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(91,124,250,0.15); }
+.input::placeholder { color: var(--text-muted); }
+
+.btn {
+  font-weight: 600; font-size: 13px; border-radius: 9px; padding: 9px 15px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--border);
+  background: transparent; color: var(--text-primary); transition: transform .08s ease, background .15s ease;
+  font-family: inherit;
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary { background: var(--accent-grad); border-color: transparent; color: #fff; }
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-ghost:hover { background: var(--card-hover); }
+.btn-icon { padding: 7px; }
+
+.pill { font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+
+.sidebar-link {
+  width: 100%; text-align: left; display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px; margin-bottom: 3px; border-radius: 9px; border: none; cursor: pointer;
+  background: transparent; color: var(--text-secondary); font-size: 13.5px; font-weight: 500;
+}
+.sidebar-link.active { background: var(--accent-grad); color: #fff; font-weight: 600; }
+.sidebar-link:hover:not(.active) { background: var(--card-hover); color: var(--text-primary); }
+
+table.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.data-table th { text-align: left; padding: 8px; border-bottom: 1px solid var(--border); }
+table.data-table td { padding: 9px 8px; border-bottom: 1px solid var(--border); }
+
+.scrollbar::-webkit-scrollbar { height: 6px; width: 6px; }
+.scrollbar::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+
+.checkbox { width: 15px; height: 15px; accent-color: var(--accent); }
+
+@media print {
+  .no-print { display: none !important; }
+  .print-area { position: static !important; background: white !important; color: #111 !important; }
+}
