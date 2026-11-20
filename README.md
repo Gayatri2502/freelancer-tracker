@@ -50,3 +50,22 @@ If you want any of these, the natural next step is adding a backend (e.g. Supaba
 ## Tech stack
 
 React 18, Vite, Recharts (charts), Papaparse (CSV), SheetJS/xlsx (Excel), jsPDF + html2canvas (PDF export), Lucide (icons). No CSS framework — plain CSS with theme variables in `src/index.css`.
+
+## Dashboard and data flow
+
+![Dashboard with empty sample data](dashboard.jpg)
+
+```mermaid
+flowchart LR
+  User --> UI[React workspace]
+  UI --> Invoices[Invoices and payments]
+  UI --> Work[Clients, projects and time]
+  UI --> Expenses[Expenses]
+  Invoices --> Dashboard[Dashboard and reports]
+  Work --> Dashboard
+  Expenses --> Dashboard
+  UI <--> Storage[Browser localStorage]
+  UI --> Export[PDF, CSV, Excel and JSON exports]
+```
+
+The screenshot shows a fresh local session without personal financial data.
